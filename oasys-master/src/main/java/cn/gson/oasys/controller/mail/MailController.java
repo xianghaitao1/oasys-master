@@ -9,7 +9,6 @@ import java.util.Objects;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +44,6 @@ import cn.gson.oasys.model.entity.mail.Mailnumber;
 import cn.gson.oasys.model.entity.mail.Mailreciver;
 import cn.gson.oasys.model.entity.mail.Pagemail;
 import cn.gson.oasys.model.entity.note.Attachment;
-import cn.gson.oasys.model.entity.role.Role;
 import cn.gson.oasys.model.entity.system.SystemStatusList;
 import cn.gson.oasys.model.entity.system.SystemTypeList;
 import cn.gson.oasys.model.entity.user.Dept;
@@ -722,19 +720,19 @@ public class MailController {
         if (!StringUtil.isEmpty(req.getParameter("title"))) {
             name = req.getParameter("title").trim();
         }
-        if (!StringUtil.isEmpty(req.getParameter("qufen"))) {
-            qufen = req.getParameter("qufen").trim();
-
-            System.out.println("111");
-            if (StringUtil.isEmpty(name)) {
-                // 查询部门下面的员工
-                pageuser = udao.findByFatherId(userId, pa);
-            } else {
-                // 查询名字模糊查询员工
-                pageuser = udao.findbyFatherId(name, userId, pa);
-            }
-
-        } else {
+//        if (!StringUtil.isEmpty(req.getParameter("qufen"))) {
+//            qufen = req.getParameter("qufen").trim();
+//
+//            System.out.println("111");
+//            if (StringUtil.isEmpty(name)) {
+//                // 查询部门下面的员工
+//                pageuser = udao.findByFatherId(userId, pa);
+//            } else {
+//                // 查询名字模糊查询员工
+//                pageuser = udao.findbyFatherId(name, userId, pa);
+//            }
+//
+//        } else {
             System.out.println("222");
             if (StringUtil.isEmpty(name)) {
                 //查看用户并分页
@@ -742,7 +740,7 @@ public class MailController {
             } else {
                 pageuser = udao.findbyUserNameLike(name, pa);
             }
-        }
+//        }
         userlist = pageuser.getContent();
         // 查询部门表
         Iterable<Dept> deptlist = ddao.findAll();
@@ -755,8 +753,8 @@ public class MailController {
         model.addAttribute("url", "names");
 
         return "common/recivers";
+}
 
-    }
 
     /**
      * 最近邮件

@@ -175,16 +175,16 @@ function check() {
 			return false;
 		} else {
 			
-			if(index == 0){
-				var $name=$(this).val();
- 				
- 				if(isChinaName($name) == false){
- 					$(this).parent().addClass("has-error has-feedback");
- 					alertCheck("请输入中文名称");
- 					isRight = 0;
- 		 			return false;
- 				}
-			} 
+			// if(index == 0){
+			// 	var $name=$(this).val();
+ 			//
+ 			// 	if(isChinaName($name) == false){
+ 			// 		$(this).parent().addClass("has-error has-feedback");
+ 			// 		alertCheck("请输入中文名称");
+ 			// 		isRight = 0;
+ 		 	// 		return false;
+ 			// 	}
+			// }
 			
 			if(index == 3){
 				var $mail=$(this).val();

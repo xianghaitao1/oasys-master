@@ -92,11 +92,11 @@
 </style>
 <div class="row" style="padding-top: 10px;">
     <div class="col-md-2">
-        <h1 style="font-size: 24px; margin: 0;" class="">问卷调查</h1>
+        <h1 style="font-size: 24px; margin: 0;" class="">企业信息</h1>
     </div>
     <div class="col-md-10 text-right">
         <a href="##"><span class="glyphicon glyphicon-home"></span> 首页</a> > <a
-                disabled="disabled">问卷调查</a>
+                disabled="disabled">企业信息</a>
     </div>
 </div>
 <div class="row" style="padding-top: 15px;">
@@ -171,7 +171,7 @@
 
                         <tr>
                             <td class="title"><label class="control-label">企业总资产（万元）</label></td>
-                            <td colspan="6"><input type="text" class="form-control inpu" name="proId.totalmoney"/></td>
+                            <td colspan="6"><input type="text" class="form-control inpu" name="proId.allmoney"/></td>
 
                             <td class="title"><label class="control-label">职工人数（人）</label></td>
                             <td colspan="6"><input type="text" class="form-control inpu" name="proId.employees"/></td>
@@ -211,11 +211,11 @@
                                    </select>
                                </td>-->
                             <td class="title"><label class="control-label">已获得的荣誉资质</label></td>
-                            <td colspan="6"><input type="text" class="form-control inpu cheng"
+                            <td colspan="6"><input type="text" class="form-control inpu shen"
                                                    readonly="readonly" style="background-color:#fff;" name="proId.honors"/>
                                 <div class="reciver">
-						<span class="label label-success glyphicon glyphicon-plus"
-                        >选择荣誉资质</span>
+						<span class="label label-success glyphicon glyphicon-plus">选择荣誉资质</span>
+<#--                                    <span  class="label label-success glyphicon glyphicon-plus" id="deptid" style="display: none">21L</span>-->
                                 </div>
                             </td>
                         </tr>
@@ -330,6 +330,7 @@
 <input type="text" class="ject" style="display:none;">
 <#include "/common/modalTip.ftl">
 <script>
+
     //表单提交前执行的onsubmit()方法；返回false时，执行相应的提示信息；返回true就提交表单到后台校验与执行
     function check() {
         console.log("开始进入了");
@@ -436,8 +437,12 @@
     });
 
 
+
+
 </script>
 <#include "/common/reciver.ftl">
 <#include "/process/subject.ftl">
+
+<#--<script type="text/javascript" src="easyui/jquery.min.js"></script>-->
 <script type="text/javascript" src="js/common/data.js"></script>
 <script type="text/javascript" src="plugins/My97DatePicker/WdatePicker.js"></script>

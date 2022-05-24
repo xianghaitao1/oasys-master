@@ -127,7 +127,6 @@ public class User {
 	@ManyToOne()
 	@JoinColumn(name = "role_id")
 	private Role role;			//外键关联 角色表
-	
 
 	@ManyToMany(mappedBy = "users")
 	private List<ScheduleList> scheduleLists;
@@ -143,10 +142,18 @@ public class User {
 
 	@OneToMany(mappedBy="user",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private Set<Attends> aSet;
-	
-	
-	
-	
+
+	@Column(name = "honors")
+	private String honors;
+
+	public String getHonors() {
+		return honors;
+	}
+
+	public void setHonors(String honors) {
+		this.honors = honors;
+	}
+
 	public String getPinyin() {
 		return pinyin;
 	}
@@ -449,7 +456,7 @@ public void setSuperman(Boolean superman) {
 				+ birth + ", userSign=" + userSign + ", password=" + password + ", salary=" + salary + ", imgPath="
 				+ imgPath + ", hireTime=" + hireTime + ", isLock=" + isLock + ", lastLoginIp=" + lastLoginIp
 				+ ", lastLoginTime=" + lastLoginTime + ", modifyTime=" + modifyTime + ", modifyUserId=" + modifyUserId
-				+ ", fatherId=" + fatherId + ", holiday=" + holiday + ",superman=" + superman + ",pinyin=" + pinyin + "]";
+				+ ", fatherId=" + fatherId + ", holiday=" + holiday + ",superman=" + superman + ",pinyin=" + pinyin + ",honors=" + honors + "]";
 	}
 	
 	

@@ -10,12 +10,10 @@ import javax.annotation.PostConstruct;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -68,8 +66,6 @@ import cn.gson.oasys.model.entity.system.SystemStatusList;
 import cn.gson.oasys.model.entity.system.SystemTypeList;
 import cn.gson.oasys.model.entity.user.User;
 import cn.gson.oasys.services.process.ProcessService;
-
-import static cn.gson.oasys.model.entity.process.ProcessList_.entaddress;
 
 @Controller
 @RequestMapping("/")
@@ -131,8 +127,11 @@ public class ProcedureController {
 
 	//新增页面
 	@RequestMapping("xinxeng")
-	public String index(){
-		
+	public String index(Model model, @SessionAttribute("userId") Long userId,HttpServletRequest request,
+						   @RequestParam(value = "page", defaultValue = "0") int page,
+						   @RequestParam(value = "size", defaultValue = "10") int size){
+		//查找类型
+		proservice.index6(model, userId, page, size);
 		return "process/procedure";
 	}
 	
@@ -319,7 +318,7 @@ public class ProcedureController {
 		map=proservice.index3(name,user,typename,process);
 			if(("问卷调查").equals(typename)){
 				Bursement bu=budao.findByProId(process);
-				User prove=udao.findOne(bu.getUsermoney().getUserId());//证明人
+				String prove="admin";//证明人
 			if(!Objects.isNull(bu.getOperation())){
 				audit=udao.findOne(bu.getOperation().getUserId());//最终审核人
 			}
@@ -362,6 +361,7 @@ public class ProcedureController {
 				Evection eve=edao.findByProId(process);
 				model.addAttribute("eve", eve);
 				model.addAttribute("map", map);
+				model.addAttribute("pro",process);
 				return "process/eveserach";
 			}else if(("加班申请").equals(typename)){
 				Overtime eve=odao.findByProId(process);
@@ -682,17 +682,12 @@ public class ProcedureController {
 		Long fatherid=lu.getFatherId();//申请人父id
 		Long userid=shen.getUserId();//审核人userid
 		String val=req.getParameter("val");
-		if(roleid>=3L && Objects.equals(fatherid, userid)){
 			//set主表
 			ProcessList pro=eve.getProId();
 			proservice.index5(pro, val, lu, shen.getUserName());
 			edao.save(eve);
 			//存审核表
 			proservice.index7(shen, pro);
-		}else{
-			return "common/proce";
-		}
-		
 		return "redirect:/xinxeng";
 	}
 	//加班申请

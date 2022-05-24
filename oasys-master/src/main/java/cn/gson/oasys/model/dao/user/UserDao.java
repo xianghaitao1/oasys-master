@@ -19,7 +19,11 @@ public interface UserDao extends JpaRepository<User, Long>{
 	List<User>  findByFatherId(Long parentid);
 	
 	Page<User> findByFatherId(Long parentid,Pageable pa);
-	
+
+	//通过userid查找
+	@Query("select u from User u where u.dept.deptId=:deptid")
+	Page<User> findByDeptId(@Param("deptid") Long deptid,Pageable pa);
+
 	//名字模糊查找
 	@Query("select u from User u where  (u.userName like %?1% or u.realName like %?1%) and u.fatherId=?2 ")
 	Page<User> findbyFatherId(String name,Long parentid,Pageable pa);

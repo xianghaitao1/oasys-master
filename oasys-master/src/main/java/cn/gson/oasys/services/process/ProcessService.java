@@ -15,6 +15,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 
+import cn.gson.oasys.model.dao.processdao.*;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,15 +26,10 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.github.pagehelper.util.StringUtil;
 
 import cn.gson.oasys.model.dao.notedao.AttachmentDao;
-import cn.gson.oasys.model.dao.processdao.BursementDao;
-import cn.gson.oasys.model.dao.processdao.ProcessListDao;
-import cn.gson.oasys.model.dao.processdao.ReviewedDao;
-import cn.gson.oasys.model.dao.processdao.SubjectDao;
 import cn.gson.oasys.model.dao.roledao.RoleDao;
 import cn.gson.oasys.model.dao.system.StatusDao;
 import cn.gson.oasys.model.dao.system.TypeDao;
@@ -165,7 +161,7 @@ public class ProcessService {
 		model.addAttribute("poslist", poslist);
 		model.addAttribute("url", "names");
 	}
-	
+
 	
 	public Page<AubUser> index(User user,int page,int size,String val,Model model){
 		Pageable pa=new PageRequest(page, size);
@@ -251,6 +247,8 @@ public class ProcessService {
 		result.put("harryname", harryname);
 		result.put("processName", process.getProcessName());
 		result.put("processDescribe",process.getProcessDescribe());
+
+
 		result.put("entaddress",process.getEntaddress());
 		result.put("code",process.getCode());
 		result.put("regmoney",process.getRegmoney());
@@ -260,16 +258,33 @@ public class ProcessService {
 		result.put("enttype",process.getEnttype());
 		result.put("contacts",process.getContacts());
 		result.put("phonenum2",process.getPhonenum2());
-		result.put("totalmoney",process.getTotalmoney());
+		result.put("allmoney",process.getAllmoney());
 		result.put("employees",process.getEmployees());
 		result.put("knowledge",process.getKnowledge());
-		result.put("invention",process.getInvention());
+		result.put("invention",process.getIntention());
 		result.put("software",process.getSoftware());
 		result.put("trademark",process.getTrademark());
 		result.put("coveredarea",process.getCoveredarea());
 		result.put("plantarea",process.getPlantarea());
 		result.put("products",process.getProducts());
 		result.put("honors",process.getHonors());
+
+
+
+
+
+
+		result.put("docnumber",process.getDocnumber());
+		result.put("year",process.getYear());
+		result.put("totalmoney",process.getTotalmoney());
+		result.put("isstore",process.getIsstore());
+		result.put("intime",process.getIntime());
+		result.put("realtime",process.getRealtime());
+		result.put("finishtime",process.getFinishtime());
+		result.put("moneysource",process.getMoneysource());
+		result.put("products_money",process.getProducts_money());
+		result.put("intel_money",process.getIntel_money());
+		result.put("net_money",process.getNet_money());
 
 		if(("审核").equals(name)){
 			result.put("username", process.getUserId().getUserName());//提单人员
@@ -309,6 +324,7 @@ public class ProcessService {
 		List<SystemTypeList> harrylist=tydao.findByTypeModel("aoa_process_list");
 		//查看用户并分页
 		Page<User> pageuser=udao.findAll(pa);
+
 		List<User> userlist=pageuser.getContent();
 		// 查询部门表
 		Iterable<Dept> deptlist = ddao.findAll();

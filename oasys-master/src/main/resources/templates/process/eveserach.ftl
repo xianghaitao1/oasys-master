@@ -190,7 +190,12 @@ border-top: 1px solid #2196F3;
 						<span class="glyphicon glyphicon-download-alt"></span> 下载</a>
 						</#if>
 					</div></td>
-					<td class="css" colspan="12" ></td>
+
+					<td class="wi" style="width:80px;"><label class="control-label">企业地址</label></td>
+					<td colspan="4" style="width:44px;"><div class="bottom">${(pro.entaddress)!''}</div></td>
+					<td class="css" style="width:30px;"></td>
+
+<#--					<td class="css" colspan="12" ></td>-->
 					
 				</tr>
 				<tr class="rile" style="height:70px;">
