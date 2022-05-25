@@ -65,6 +65,9 @@ public class ProcessList{
 
 	private String shenuser;
 
+	@Column(name = "record_name")
+	private String recordname;//项目备案单位
+
 	@Column(name = "doc_number")
 	private String docnumber;//项目备案文号
 
@@ -138,7 +141,7 @@ public class ProcessList{
 	private String machine_value;//核心设备价值
 
 	@Column(name = "machine_intime")
-	private String machine_intime;//核心设备购入时间
+	private Date machine_intime;//核心设备购入时间
 
 	@Column(name = "intention")
 	private String intention;//自动化设备投入意向
@@ -267,7 +270,7 @@ public class ProcessList{
 	private String regaddress2;//年份
 
 	@Column(name = "regtime")
-	private String regtime;//年份
+	private Date regtime;//年份
 
 	@Column(name = "workshop3")
 	private String workshop3;//年份
@@ -355,6 +358,7 @@ public class ProcessList{
 				", procseeDays=" + procseeDays +
 				", proFileid=" + proFileid +
 				", shenuser='" + shenuser + '\'' +
+				", recordname='" + recordname + '\'' +
 				", docnumber='" + docnumber + '\'' +
 				", year='" + year + '\'' +
 				", totalmoney='" + totalmoney + '\'' +
@@ -379,7 +383,7 @@ public class ProcessList{
 				", core_machine='" + core_machine + '\'' +
 				", machine_type='" + machine_type + '\'' +
 				", machine_value='" + machine_value + '\'' +
-				", machine_intime='" + machine_intime + '\'' +
+				", machine_intime=" + machine_intime +
 				", intention='" + intention + '\'' +
 				", erp='" + erp + '\'' +
 				", erp_type='" + erp_type + '\'' +
@@ -422,7 +426,7 @@ public class ProcessList{
 				", regaddress1='" + regaddress1 + '\'' +
 				", workshop2='" + workshop2 + '\'' +
 				", regaddress2='" + regaddress2 + '\'' +
-				", regtime='" + regtime + '\'' +
+				", regtime=" + regtime +
 				", workshop3='" + workshop3 + '\'' +
 				", basic='" + basic + '\'' +
 				", technology='" + technology + '\'' +
@@ -448,6 +452,14 @@ public class ProcessList{
 				", products='" + products + '\'' +
 				", honors='" + honors + '\'' +
 				'}';
+	}
+
+	public String getRecordname() {
+		return recordname;
+	}
+
+	public void setRecordname(String recordname) {
+		this.recordname = recordname;
 	}
 
 	public String getHonors() {
@@ -628,14 +640,6 @@ public class ProcessList{
 
 	public void setRegaddress2(String regaddress2) {
 		this.regaddress2 = regaddress2;
-	}
-
-	public String getRegtime() {
-		return regtime;
-	}
-
-	public void setRegtime(String regtime) {
-		this.regtime = regtime;
 	}
 
 	public String getWorkshop3() {
@@ -1046,12 +1050,20 @@ public class ProcessList{
 		this.machine_value = machine_value;
 	}
 
-	public String getMachine_intime() {
+	public Date getMachine_intime() {
 		return machine_intime;
 	}
 
-	public void setMachine_intime(String machine_intime) {
+	public void setMachine_intime(Date machine_intime) {
 		this.machine_intime = machine_intime;
+	}
+
+	public Date getRegtime() {
+		return regtime;
+	}
+
+	public void setRegtime(Date regtime) {
+		this.regtime = regtime;
 	}
 
 	public String getIntention() {

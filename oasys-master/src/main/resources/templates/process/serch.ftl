@@ -184,10 +184,10 @@
 					<li>工程研究中心</li>
 					<li>工业互联网标杆工厂</li>
 				</ul>
-
+				<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
 				<div class="content">
 
-					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
+
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -291,6 +291,52 @@
 									</td>
 								</tr>
 
+
+								<tr class="hidden">
+									<td colspan="14">
+										<div class="food">
+											<table class="table inside">
+												<thead>
+												<tr>
+													<th colspan="2" style="width: 77px;">选择</th>
+													<th colspan="2">费用日期</th>
+													<th colspan="2">费用科目</th>
+													<th colspan="2">费用说明</th>
+													<th colspan="2">票据张数</th>
+													<th colspan="2">报销金额</th>
+												</tr>
+												</thead>
+												<tbody class="tbody">
+												<tr class="tr">
+													<td class="chebox" colspan="2"><span class="labels"><label><input
+																		type="checkbox" name="items"
+																		class="val"><i>✓</i></label></span></td>
+													<td colspan="2"><input type="text" class="form-control inpu shijian"
+																		   name="details[0].produceTime"/></td>
+													<td colspan="2">
+														<input type="text" class="form-control inpu" name="details[0].subject"
+															   readonly="readonly" style="background-color:#fff;"/>
+														<div class="sub">
+															<i class="glyphicon glyphicon-search"></i>
+														</div>
+													</td>
+													<td colspan="2"><input type="text" class="form-control inpu"
+																		   name="details[0].descript"/></td>
+													<td colspan="2"><input type="text" class="form-control inpu"
+																		   name="details[0].invoices"/></td>
+													<td colspan="2" class="tdrig"><input type="text" class="form-control inpu"
+																						 name="details[0].detailmoney"/></td>
+
+												</tr>
+
+												</tbody>
+											</table>
+										</div>
+									</td>
+								</tr>
+
+
+
 								<tr class="fo">
 
 									<td colspan="14" style="text-align: right;">
@@ -309,13 +355,13 @@
 								</tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 
 				</div>
 
 				<div class="content hide">
 
-					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -342,7 +388,7 @@
 								<tr>
 									<td class="title"><label class="control-label">项目备案单位</label></td>
 									<td colspan="6"><input type="text" class="form-control inpu"
-														   name="proId.processName"/></td>
+														   value="${pro.recordname}" readonly="readonly"/></td>
 
 									<td class="title"><span>项目备案文号</span></td>
 									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.docnumber}" readonly="readonly"/>
@@ -364,7 +410,7 @@
                                                            value="${username}"/></td>-->
 									<td class="title"><label class="control-label">项目总投资</label></td>
 									<td colspan="6">
-										<input type="text" class="form-control inpu" name="pro.totalmoney"/>
+										<input type="text" class="form-control inpu" value="${pro.totalmoney}" readonly="readonly"/>
 										<#-- <select class="form-control inpu" name="typeId">
                                              <#list outtype as out>
                                                  <option value="${out.typeId}">${out.typeName}</option>
@@ -378,11 +424,11 @@
                                     <td colspan="6"><input type="text" class="form-control inpu" id="starTime"
                                                            name="proId.startTime"/></td>-->
 									<td class="title"><label class="control-label">是否纳入统计库</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu" name="pro.isstore"/>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.isstore}" readonly="readonly"/>
 									</td>
 									<td class="title"><label class="control-label">入库时间</label></td>
 									<td colspan="6"><input type="text" class="form-control inpu" id="endTime"
-														   name="pro.intime"/></td>
+														   value="${pro.intime}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 
@@ -396,10 +442,10 @@
                                          </div>
                                      </td>-->
 									<td colspan="6"><input type="text" class="form-control inpu" id="starTime"
-														   name="pro.realtime"/>
+														   value="${pro.realtime}" readonly="readonly"/>
 									<td class="title"><label class="control-label">项目计划竣工日期</label></td>
 									<td colspan="6"><input type="text" class="form-control inpu" id="starTimed"
-														   name="pro.finishtime"/>
+														   value="${pro.finishtime}" readonly="readonly"/>
 
 								</tr>
 
@@ -407,7 +453,7 @@
 
 									<td class="title"><label class="control-label">项目资金来源</label></td>
 									<td colspan="6">
-										<select class="form-control inpu" name="pro.moneysource">
+										<select class="form-control inpu" value="${pro.moneysource}" readonly="readonly">
 											<option>自有资金</option>
 											<option>贷款资金</option>
 											<option>融资租赁</option>
@@ -419,15 +465,15 @@
 
 									<td class="title"><label class="control-label">其中：生产性设备投资额（万元）</label></td>
 									<td colspan="6"><input type="text" class="form-control inpu"
-														   name="pro.products_money"/></td>
+														   value="${pro.products_money}" readonly="readonly"/></td>
 									<#-- <td colspan="6"><textarea class="form-control text" name="proId.processDescribe"></textarea>-->
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">其中：智能化设备投入（万元）</label></td>
 									<td colspan="6"><input type="text" class="form-control inpu"
-														   name="pro.inter_money"/></td>
+														   value="${pro.intel_money}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">其中：信息化、网络化投入（万元）</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu" name="pro.netmoney"/>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.net_money}" readonly="readonly"/>
 									</td>
 								</tr>
 
@@ -435,7 +481,7 @@
 								<tr>
 									<td colspan="14" style="text-align: right;">
 										<input type="text" class="days" name="proId.procseeDays" hidden="hidden"/>
-										<input type="text" value="出差申请" name="val" hidden="hidden"/>
+										<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 										<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 										<input class="btn btn-default" id="cancel" type="button" value="取消"
 											   onclick="window.history.back();"/>
@@ -443,11 +489,11 @@
 								</tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 
 				</div>
 				<div class="content hide">
-					<form action="evec" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<tr>
 								<td colspan="1" class="title"><b>企业经营情况</b></td>
@@ -476,22 +522,20 @@
                                                                      type="checkbox" name="items"
                                                                      class="val"><i>✓</i></label></span></td>-->
 												<td colspan="2"><input type="text" class="form-control inpu"
-																	   name="details[0].produceTime"/></td>
+																	   value="${pro.ent_year}" readonly="readonly"/></td>
 												<td colspan="2">
 													<input type="text" class="form-control inpu"
-														   name="details[0].subject"
-														   readonly="readonly" style="background-color:#fff;"/>
+														   value="${pro.main_income}" readonly="readonly" style="background-color:#fff;"/>
 													<#-- <div class="sub">
                                                        <i class="glyphicon glyphicon-search"></i>
                                                     </div>-->
 												</td>
 												<td colspan="2"><input type="text" class="form-control inpu"
-																	   name="details[0].descript"/></td>
+																	   value="${pro.m_rise}" readonly="readonly"/></td>
 												<td colspan="2"><input type="text" class="form-control inpu"
-																	   name="details[0].invoices"/></td>
-												<td colspan="2" class="tdrig"><input type="text"
-																					 class="form-control inpu"
-																					 name="details[0].detailmoney"/>
+																	   value="${pro.net_profit}" readonly="readonly"/></td>
+												<td colspan="2" class="tdrig"><input type="text" class="form-control inpu"
+																					 value="${pro.n_rise}" readonly="readonly"/>
 												</td>
 
 											</tr>
@@ -501,7 +545,7 @@
 												<td colspan="14" style="text-align: right;">
 													<input type="text" class="days" name="proId.procseeDays"
 														   hidden="hidden"/>
-													<input type="text" value="出差申请" name="val" hidden="hidden"/>
+													<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 													<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 													<input class="btn btn-default" id="cancel" type="button" value="取消"
 														   onclick="window.history.back();"/>
@@ -513,12 +557,12 @@
 								</td>
 							</tr>
 						</div>
-					</form>
+<#--					</form>-->
 				</div>
 
 				<!-- 默认除了第一个页面(div)，其它的页面(div)有hide样式, 也就是display:none -->
 				<div class="content hide">
-					<form action="evec" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -527,40 +571,40 @@
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">企业智能化设备（台）</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.machines}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">总设备（台）</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.totalmachine}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">企业自有生产设备情况（2年内新设备）</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu" value="%"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.machine_2}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">企业自有生产设备情况（使用5年设备）</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.machine_5}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">企业自有生产设备情况（已完成折旧设备）</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.machine_old}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">核心设备名称</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.core_machine}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">核心设备类型</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.machine_type}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">核心设备价值</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.machine_type}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">核心设备购入时间</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.machine_intime}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">自动化设备投入意向</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.intention}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 								<tr>
 									<td colspan="14" style="text-align: right;">
 										<input type="text" class="days" name="proId.procseeDays"
 											   hidden="hidden"/>
-										<input type="text" value="出差申请" name="val" hidden="hidden"/>
+										<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 										<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 										<input class="btn btn-default" id="cancel" type="button" value="取消"
 											   onclick="window.history.back();"/>
@@ -568,11 +612,11 @@
 								</tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 
 				</div>
 				<div class="content hide">
-					<form action="evec" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="evec" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -581,189 +625,169 @@
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">企业资源计划（ERP）</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu cheng"
-														   readonly="readonly" style="background-color:#fff;"
-														   name="namemoney"/>
+									<td colspan="6"><input type="text" class="form-control inpu cheng" style="background-color:#fff;" value="${pro.erp}" readonly="readonly"/>
 										<div class="reciver">
 						<span class="label label-success glyphicon glyphicon-plus"
 						>选择管理模块</span>
 										</div>
 									<td class="title"><label class="control-label">ERP系统品牌型号</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.erp_type}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">ERP系统使用情况</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.erp_use}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">ERP系统是否有改造需求</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.erp_change}" readonly="readonly"/></td>
 								</tr>
 
 								<tr>
 									<td class="title"><label class="control-label">OA系统</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu cheng"
-														   readonly="readonly" style="background-color:#fff;"
-														   name="namemoney"/>
+									<td colspan="6"><input type="text" class="form-control inpu cheng" style="background-color:#fff;" value="${pro.oa}" readonly="readonly"/>
 										<div class="reciver">
 						<span class="label label-success glyphicon glyphicon-plus"
 						>选择管理模块</span>
 										</div>
 									<td class="title"><label class="control-label">OA系统品牌型号</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.oa_type}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">OA系统使用情况</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.oa_use}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">OA系统是否有改造需求</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.oa_change}" readonly="readonly"/></td>
 								</tr>
 
 								<tr>
 									<td class="title"><label class="control-label">制造执行系统MES</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu cheng"
-														   readonly="readonly" style="background-color:#fff;"
-														   name="namemoney"/>
+									<td colspan="6"><input type="text" class="form-control inpu cheng" style="background-color:#fff;" value="${pro.mes}" readonly="readonly"/>
 										<div class="reciver">
 						<span class="label label-success glyphicon glyphicon-plus"
 						>选择管理模块</span>
 										</div>
 									<td class="title"><label class="control-label">MES系统品牌型号</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.mes_type}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">MES系统使用情况</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.mes_use}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">MES系统是否有改造需求</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.mes_change}" readonly="readonly"/></td>
 								</tr>
 
 								<tr>
 									<td class="title"><label class="control-label">高级计划排程（APS）</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu cheng"
-														   readonly="readonly" style="background-color:#fff;"
-														   name="namemoney"/>
+									<td colspan="6"><input type="text" class="form-control inpu cheng" style="background-color:#fff;" value="${pro.aps}" readonly="readonly"/>
 										<div class="reciver">
 						<span class="label label-success glyphicon glyphicon-plus"
 						>选择管理模块</span>
 										</div>
 									<td class="title"><label class="control-label">APS系统品牌型号</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.aps_type}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">APS系统使用情况</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.aps_use}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">APS系统是否有改造需求</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.aps_change}" readonly="readonly"/></td>
 								</tr>
 
 								<tr>
 									<td class="title"><label class="control-label">仓库管理系统WMS</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu cheng"
-														   readonly="readonly" style="background-color:#fff;"
-														   name="namemoney"/>
+									<td colspan="6"><input type="text" class="form-control inpu cheng" style="background-color:#fff;" value="${pro.wms}" readonly="readonly"/>
 										<div class="reciver">
 						<span class="label label-success glyphicon glyphicon-plus"
 						>选择管理模块</span>
 										</div>
 									<td class="title"><label class="control-label">WMS品牌型号</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.wms_type}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">WMS系统使用情况</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.wms_use}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">WMS系统是否有改造需求</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.wms_change}" readonly="readonly"/></td>
 								</tr>
 
 								<tr>
 									<td class="title"><label class="control-label">人员/物资定位系统</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu cheng"
-														   readonly="readonly" style="background-color:#fff;"
-														   name="namemoney"/>
+									<td colspan="6"><input type="text" class="form-control inpu cheng" style="background-color:#fff;" value="${pro.mps}" readonly="readonly"/>
 										<div class="reciver">
 						<span class="label label-success glyphicon glyphicon-plus"
 						>选择管理模块</span>
 										</div>
 									<td class="title"><label class="control-label">定位系统品牌型号</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.mps_type}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">定位系统使用情况</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.mps_use}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">定位系统是否有改造需求</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.mps_change}" readonly="readonly"/></td>
 								</tr>
 
 								<tr>
 									<td class="title"><label class="control-label">供应链管理系统（SCM）</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu cheng"
-														   readonly="readonly" style="background-color:#fff;"
-														   name="namemoney"/>
+									<td colspan="6"><input type="text" class="form-control inpu cheng" style="background-color:#fff;" value="${pro.scm}" readonly="readonly"/>
 										<div class="reciver">
 						<span class="label label-success glyphicon glyphicon-plus"
 						>选择管理模块</span>
 										</div>
 									<td class="title"><label class="control-label">SCM系统品牌型号</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.scm_type}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">SCM系统使用情况</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.scm_use}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">SCM系统是否有改造需求</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.scm_change}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">设备管理系统（EMS）</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu cheng"
-														   readonly="readonly" style="background-color:#fff;"
-														   name="namemoney"/>
+									<td colspan="6"><input type="text" class="form-control inpu cheng" style="background-color:#fff;" value="${pro.ems}" readonly="readonly"/>
 										<div class="reciver">
 						<span class="label label-success glyphicon glyphicon-plus"
 						>选择管理模块</span>
 										</div>
 									<td class="title"><label class="control-label">EMS系统品牌型号</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.ems_type}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">EMS系统使用情况</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.ems_use}" readonly="readonly"/></td>
 									<td class="title"><label class="control-label">EMS系统是否有改造需求</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.ems_change}" readonly="readonly"/></td>
 								</tr>
 
 								<tr>
 									<td class="title"><label class="control-label">其它辅助系统</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu cheng"
-														   readonly="readonly" style="background-color:#fff;"
-														   name="namemoney"/>
+									<td colspan="6"><input type="text" class="form-control inpu cheng" style="background-color:#fff;" value="${pro.other_sys}" readonly="readonly"/>
 										<div class="reciver">
 						<span class="label label-success glyphicon glyphicon-plus"
 						>选择管理模块</span>
 										</div>
 									<td class="title"><label class="control-label">其他</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.remark1}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">品牌型号</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.sys_type}" readonly="readonly"/></td>
 								</tr>
 
 								<tr>
 									<td class="title"><label class="control-label">接受精益生产咨询&培训</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu cheng"
-														   readonly="readonly" style="background-color:#fff;"
-														   name="namemoney"/>
+									<td colspan="6"><input type="text" class="form-control inpu cheng" style="background-color:#fff;" value="${pro.train}" readonly="readonly"/>
 										<div class="reciver">
 						<span class="label label-success glyphicon glyphicon-plus"
 						>选择管理模块</span>
 										</div>
 									<td class="title"><label class="control-label">其他</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.remark2}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td colspan="14" style="text-align: right;">
 										<input type="text" class="days" name="proId.procseeDays"
 											   hidden="hidden"/>
-										<input type="text" value="出差申请" name="val" hidden="hidden"/>
+										<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 										<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 										<input class="btn btn-default" id="cancel" type="button" value="取消"
 											   onclick="window.history.back();"/>
@@ -772,11 +796,11 @@
 
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 				</div>
 				<div class="content hide">
 
-					<form action="evec" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -786,9 +810,9 @@
 
 								<tr>
 									<td class="title"><label class="control-label">智能车间（市级/省级）</label></td>
-									<td colspan="14"><textarea rows="5" cols="20" name="describtion"
+									<td colspan="14"><textarea rows="5" cols="20"
 															   class="form-control"
-															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 800px;">${(position.describtion)!''}</textarea>
+															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 800px;">${(pro.workshop1)!''}</textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -800,7 +824,7 @@
 								<tr>
 									<td colspan="14" style="text-align: right;">
 										<input type="text" class="days" name="proId.procseeDays" hidden="hidden"/>
-										<input type="text" value="出差申请" name="val" hidden="hidden"/>
+										<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 										<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 										<input class="btn btn-default" id="cancel" type="button" value="取消"
 											   onclick="window.history.back();"/>
@@ -808,12 +832,12 @@
 								</tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 
 				</div>
 				<div class="content hide">
 
-					<form action="evec" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -822,13 +846,13 @@
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">注册地</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.regaddress1}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">智能车间（市级/省级）</label></td>
-									<td colspan="14"><textarea rows="5" cols="20" name="describtion"
+									<td colspan="14"><textarea rows="5" cols="20"
 															   class="form-control"
-															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 800px;">${(position.describtion)!''}</textarea>
+															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 800px;">${(pro.workshop2)!''}</textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -839,7 +863,7 @@
 								<tr>
 									<td colspan="14" style="text-align: right;">
 										<input type="text" class="days" name="proId.procseeDays" hidden="hidden"/>
-										<input type="text" value="出差申请" name="val" hidden="hidden"/>
+										<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 										<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 										<input class="btn btn-default" id="cancel" type="button" value="取消"
 											   onclick="window.history.back();"/>
@@ -847,12 +871,12 @@
 								</tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 
 				</div>
 				<div class="content hide">
 
-					<form action="evec" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -861,17 +885,17 @@
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">注册地</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.regaddress2}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">注册时间</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu"/></td>
+									<td colspan="6"><input type="text" class="form-control inpu" value="${pro.regtime}" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">工程技术中心（区级/市级/省级）</label></td>
-									<td colspan="14"><textarea rows="5" cols="20" name="describtion"
+									<td colspan="14"><textarea rows="5" cols="20"
 															   class="form-control"
-															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 730px;">${(position.describtion)!''}</textarea>
+															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 730px;">${(pro.workshop3)!''}</textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -882,7 +906,7 @@
 								<tr>
 									<td colspan="14" style="text-align: right;">
 										<input type="text" class="days" name="proId.procseeDays" hidden="hidden"/>
-										<input type="text" value="出差申请" name="val" hidden="hidden"/>
+										<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 										<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 										<input class="btn btn-default" id="cancel" type="button" value="取消"
 											   onclick="window.history.back();"/>
@@ -890,12 +914,12 @@
 								</tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 
 				</div>
 				<div class="content hide">
 
-					<form action="evec" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -904,9 +928,9 @@
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">基础能力</label></td>
-									<td colspan="14"><textarea rows="5" cols="20" name="describtion"
+									<td colspan="14"><textarea rows="5" cols="20"
 															   class="form-control"
-															   style="margin: 0px -0.5px 0px 0px; height: 200px; width: 800px;">${(position.describtion)!''}</textarea>
+															   style="margin: 0px -0.5px 0px 0px; height: 200px; width: 800px;">${(pro.basic)!''}</textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -915,9 +939,9 @@
 
 								<tr>
 									<td class="title"><label class="control-label">技术能力</label></td>
-									<td colspan="14"><textarea rows="5" cols="20" name="describtion"
+									<td colspan="14"><textarea rows="5" cols="20"
 															   class="form-control"
-															   style="margin: 0px -0.5px 0px 0px; height: 200px; width: 800px;">${(position.describtion)!''}</textarea>
+															   style="margin: 0px -0.5px 0px 0px; height: 200px; width: 800px;">${(pro.technology)!''}</textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -926,9 +950,9 @@
 
 								<tr>
 									<td class="title"><label class="control-label">制作系统优化能力</label></td>
-									<td colspan="14"><textarea rows="5" cols="20" name="describtion"
+									<td colspan="14"><textarea rows="5" cols="20"
 															   class="form-control"
-															   style="margin: 0px -0.5px 0px 0px; height: 200px; width: 800px;">${(position.describtion)!''}</textarea>
+															   style="margin: 0px -0.5px 0px 0px; height: 200px; width: 800px;">${(pro.optimization)!''}</textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -938,7 +962,7 @@
 									<td class="title"><label class="control-label">全流程优化能力</label></td>
 									<td colspan="14"><textarea rows="5" cols="20" name="describtion"
 															   class="form-control"
-															   style="margin: 0px -0.5px 0px 0px; height: 200px; width: 800px;">${(position.describtion)!''}</textarea>
+															   style="margin: 0px -0.5px 0px 0px; height: 200px; width: 800px;">${(pro.optimization_all)!''}</textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -948,7 +972,7 @@
 								<tr>
 									<td colspan="14" style="text-align: right;">
 										<input type="text" class="days" name="proId.procseeDays" hidden="hidden"/>
-										<input type="text" value="出差申请" name="val" hidden="hidden"/>
+										<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 										<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 										<input class="btn btn-default" id="cancel" type="button" value="取消"
 											   onclick="window.history.back();"/>

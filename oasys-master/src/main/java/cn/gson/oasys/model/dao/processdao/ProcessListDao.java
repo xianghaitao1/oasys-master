@@ -2,6 +2,7 @@ package cn.gson.oasys.model.dao.processdao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Update;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -30,6 +31,8 @@ public interface ProcessListDao extends PagingAndSortingRepository<ProcessList, 
 	@Query("select pro from ProcessList as pro where pro.userId.userId=?1 and pro.processId=?2")
 	ProcessList findbyuseridandtitle(Long userid,Long proid);
 
-	//
+	//根据proid更新
+//	@Update("update aoa_process_list set ")
+//	List<ProcessList> updateByproId(Long proid);
 	
 }

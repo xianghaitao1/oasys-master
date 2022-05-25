@@ -127,11 +127,12 @@ public class ProcedureController {
 
 	//新增页面
 	@RequestMapping("xinxeng")
-	public String index(Model model, @SessionAttribute("userId") Long userId,HttpServletRequest request,
+	public String index(Model model, @SessionAttribute("userId") Long userId,HttpServletRequest req,
 						   @RequestParam(value = "page", defaultValue = "0") int page,
-						   @RequestParam(value = "size", defaultValue = "10") int size){
+						   @RequestParam(value = "size", defaultValue = "10") int size) {
 		//查找类型
 		proservice.index6(model, userId, page, size);
+
 		return "process/procedure";
 	}
 	
@@ -192,6 +193,8 @@ public class ProcedureController {
 		return "redirect:/xinxeng";
 
 	}
+
+
 	/**
 	 * 查找出自己的申请
 	 * @return
@@ -335,28 +338,26 @@ public class ProcedureController {
 //				System.out.println(address);
 				model.addAttribute("pro",process);
 				return "process/serch";
-			}else if(("出差费用").equals(typename)){
-				Double	staymoney=0.0;
-				Double	tramoney=0.0;
-				EvectionMoney emoney=emdao.findByProId(process);
-				
-				String money=ProcessService.numbertocn(emoney.getMoney());
-				List<Stay> staylist=sadao.findByEvemoney(emoney);
-				for (Stay stay : staylist) {
-					staymoney += stay.getStayMoney();
+			}else if(("新建流程").equals(typename)){
+				System.out.println("1111");
+				Bursement bu=budao.findByProId(process);
+				String prove="admin";//证明人
+				if(!Objects.isNull(bu.getOperation())){
+					audit=udao.findOne(bu.getOperation().getUserId());//最终审核人
 				}
-				List<Traffic> tralist=tdao.findByEvection(emoney);
-				for (Traffic traffic : tralist) {
-					tramoney+=traffic.getTrafficMoney();
-				}
-				model.addAttribute("staymoney", staymoney);
-				model.addAttribute("tramoney", tramoney);
-				model.addAttribute("allmoney", money);
-				model.addAttribute("emoney", emoney);
-				model.addAttribute("staylist", staylist);
-				model.addAttribute("tralist", tralist);
+				List<DetailsBurse> detaillist=dedao.findByBurs(bu);
+				String type=tydao.findname(bu.getTypeId());
+				String money=ProcessService.numbertocn(bu.getAllMoney());
+				model.addAttribute("prove", prove);
+				model.addAttribute("audit", audit);
+				model.addAttribute("type", type);
+				model.addAttribute("bu", bu);
+				model.addAttribute("money", money);
+				model.addAttribute("detaillist", detaillist);
 				model.addAttribute("map", map);
-				return "process/evemonserch";
+//				System.out.println(address);
+				model.addAttribute("pro",process);
+				return "process/procedure";
 			}else if(("出差申请").equals(typename)){
 				Evection eve=edao.findByProId(process);
 				model.addAttribute("eve", eve);

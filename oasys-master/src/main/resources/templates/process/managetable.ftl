@@ -58,7 +58,7 @@
 							
 							<td> <a href="particular?id=${pro.processId}&typename=${(pro.typeNmae)!''}" class="label xiugai"><span
 									class="glyphicon glyphicon-search"></span> 查看企业信息</a>
-								<a href="xinxeng?id=${pro.processId}&typename=${(pro.typeNmae)!''}" class="label xiugai"><span
+								<a href="particular?id=${pro.processId}&typename=${(pro.typeNmae)!''}" class="label xiugai"><span
 											class="glyphicon glyphicon-edit"></span> 修改企业详情</a>
 							</td>
 						</tr>

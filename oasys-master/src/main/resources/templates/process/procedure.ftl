@@ -164,11 +164,11 @@
 </style>
 <div class="row" style="padding-top: 10px;">
 	<div class="col-md-2">
-		<h1 style="font-size: 24px; margin: 0;" class="">新建流程</h1>
+		<h1 style="font-size: 24px; margin: 0;" class="">问卷调查</h1>
 	</div>
 	<div class="col-md-10 text-right">
 		<a href="##"><span class="glyphicon glyphicon-home"></span> 首页</a> > <a
-				disabled="disabled">新建流程</a>
+				disabled="disabled">问卷调查</a>
 	</div>
 </div>
 <div class="row" style="padding-top: 15px;">
@@ -181,7 +181,7 @@
 			<div>
 				<ul class="tab">
   					<li>企业基本信息</li>
-					<li >智改数转项目模板</li>
+					<li>智改数转项目模板</li>
 					<li>企业经营情况</li>
 					<li>自动化现状-智能设备/设备联网</li>
 					<li>信息化设备</li>
@@ -190,8 +190,9 @@
 					<li>工程研究中心</li>
 					<li>工业互联网标杆工厂</li>
 				</ul>
+				<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
 				<div class="content">
-					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
+
 					<div class="box-header">
 						<table class="bo table ">
 
@@ -356,7 +357,7 @@
 							<tr>
 								<td colspan="14" style="text-align: right;">
 									<input type="text" class="days" name="proId.procseeDays" hidden="hidden"/>
-									<input type="text" value="出差申请" name="val" hidden="hidden"/>
+									<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 									<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 									<input class="btn btn-default" id="cancel" type="button" value="取消"
 										   onclick="window.history.back();"/>
@@ -364,14 +365,14 @@
 							</tr>
 						</table>
 					</div>
-					</form>
+<#--					</form>-->
 
 				</div>
 
 				<div class="content hide">
 
 
-					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -398,7 +399,7 @@
 								<tr>
 									<td class="title"><label class="control-label">项目备案单位</label></td>
 									<td colspan="6"><input type="text" class="form-control inpu"
-														   name="proId.processName"/></td>
+														   name="proId.recordname"/></td>
 
 									<td class="title"><span>项目备案文号</span></td>
 									<td colspan="6"><input type="text" class="form-control inpu" name="proId.docnumber"/></td>
@@ -435,7 +436,7 @@
 									<td class="title"><label class="control-label">是否纳入统计库</label></td>
 									<td colspan="6"><input type="text" class="form-control inpu" name="proId.isstore"/></td>
 									<td class="title"><label class="control-label">入库时间</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu" id="starTime" name="proId.intime"/></td>
+									<td colspan="6"><input type="date" class="form-control inpu" name="proId.intime" value="1999-01-01"/></td>
 								</tr>
 								<tr>
 
@@ -448,9 +449,9 @@
                                               top: 12px; right: 0; " class='inpu'>
                                          </div>
                                      </td>-->
-									<td colspan="6"><input type="text" class="form-control inpu" id="endTime" name="proId.realtime"/>
+									<td colspan="6"><input type="date" class="form-control inpu" name="proId.realtime" value="1999-01-01"/>
 									<td class="title"><label class="control-label">项目计划竣工日期</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu" id="endTime" name="proId.finishtime"/>
+									<td colspan="6"><input type="date" class="form-control inpu"  name="proId.finishtime" value="1999-01-01"/>
 
 								</tr>
 
@@ -579,13 +580,13 @@
 								</tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 
 				</div>
 
 
 				<div class="content hide">
-					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 					<tr>
 						<td colspan="1" class="title"><b>企业经营情况</b></td>
 						<td colspan="13" style="text-align: right;"><i class="glyphicon glyphicon-plus zeng"></i>&nbsp;&nbsp;&nbsp;<i
@@ -721,11 +722,11 @@
 									</tbody>
 								</table>
 							</div>
-					</form>
+<#--					</form>-->
 				</div>
 				<!-- 默认除了第一个页面(div)，其它的页面(div)有hide样式, 也就是display:none -->
 				<div class="content hide">
-					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -758,7 +759,7 @@
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">核心设备购入时间</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu" name="proId.machine_intime"/></td>
+									<td colspan="6"><input type="date" class="form-control inpu" name="proId.machine_intime" value="1999-01-01"/></td>
 									<td class="title"><label class="control-label">自动化设备投入意向</label></td>
 									<td colspan="6"><input type="text" class="form-control inpu" name="proId.intention"/></td>
 								</tr>
@@ -852,7 +853,7 @@
                                     <td colspan="14" style="text-align: right;">
                                         <input type="text" class="days" name="proId.procseeDays"
                                                hidden="hidden"/>
-                                        <input type="text" value="出差申请" name="val" hidden="hidden"/>
+                                        <input type="text" value="问卷调查" name="val" hidden="hidden"/>
                                         <input class="btn btn-primary" id="save" type="submit" value="保存"/>
                                         <input class="btn btn-default" id="cancel" type="button" value="取消"
                                                onclick="window.history.back();"/>
@@ -860,11 +861,11 @@
                                 </tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 
 				</div>
 				<div class="content hide">
-					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -1138,7 +1139,7 @@
 									<td colspan="14" style="text-align: right;">
 										<input type="text" class="days" name="proId.procseeDays"
 											   hidden="hidden"/>
-										<input type="text" value="出差申请" name="val" hidden="hidden"/>
+										<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 										<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 										<input class="btn btn-default" id="cancel" type="button" value="取消"
 											   onclick="window.history.back();"/>
@@ -1146,11 +1147,11 @@
 								</tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 				</div>
 				<div class="content hide">
 
-					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -1175,8 +1176,8 @@
                                  -->
 								<tr>
 									<td class="title"><label class="control-label">智能车间（市级/省级）</label></td>
-									<td colspan="14"><p><input rows="5" cols="20" name="proId.workshop1" class="form-control"
-																  style="margin: 0px -0.5px 0px 0px; height: 300px; width: 800px;"/></p>
+									<td colspan="14"><textarea rows="5" cols="20" name="proId.workshop1" class="form-control"
+															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 800px;"></textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -1228,7 +1229,7 @@
 								<tr>
 									<td colspan="14" style="text-align: right;">
 										<input type="text" class="days" name="proId.procseeDays" hidden="hidden"/>
-										<input type="text" value="出差申请" name="val" hidden="hidden"/>
+										<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 										<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 										<input class="btn btn-default" id="cancel" type="button" value="取消"
 											   onclick="window.history.back();"/>
@@ -1236,12 +1237,12 @@
 								</tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 
 				</div>
 				<div class="content hide">
 
-					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -1254,8 +1255,8 @@
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">智能车间（市级/省级）</label></td>
-									<td colspan="14"><p><input rows="5" cols="20" name="proId.workshop2" class="form-control"
-																  style="margin: 0px -0.5px 0px 0px; height: 300px; width: 800px;" /></p>
+									<td colspan="14"><textarea rows="5" cols="20" name="proId.workshop2" class="form-control"
+															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 800px;" ></textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -1308,7 +1309,7 @@
 								<tr>
 									<td colspan="14" style="text-align: right;">
 										<input type="text" class="days" name="proId.procseeDays" hidden="hidden"/>
-										<input type="text" value="出差申请" name="val" hidden="hidden"/>
+										<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 										<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 										<input class="btn btn-default" id="cancel" type="button" value="取消"
 											   onclick="window.history.back();"/>
@@ -1316,12 +1317,12 @@
 								</tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 
 				</div>
 				<div class="content hide">
 
-					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -1335,12 +1336,12 @@
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">注册时间</label></td>
-									<td colspan="6"><input type="text" class="form-control inpu" name="proId.regtime"/></td>
+									<td colspan="6"><input type="date" class="form-control inpu" name="proId.regtime" value="1999-01-01"/></td>
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">工程技术中心（区级/市级/省级）</label></td>
-									<td colspan="14"><p><input rows="5" cols="20" name="proId.workshop3" class="form-control"
-																  style="margin: 0px -0.5px 0px 0px; height: 300px; width: 730px;" /></p>
+									<td colspan="14"><textarea rows="5" cols="20" name="proId.workshop3" class="form-control"
+															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 730px;" ></textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus">选择管理模块</span>
 										</div>
@@ -1390,7 +1391,7 @@
 								<tr>
 									<td colspan="14" style="text-align: right;">
 										<input type="text" class="days" name="proId.procseeDays" hidden="hidden"/>
-										<input type="text" value="出差申请" name="val" hidden="hidden"/>
+										<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 										<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 										<input class="btn btn-default" id="cancel" type="button" value="取消"
 											   onclick="window.history.back();"/>
@@ -1398,12 +1399,12 @@
 								</tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 
 				</div>
 				<div class="content hide">
 
-					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">
+<#--					<form action="apply" enctype="multipart/form-data" method="post" onsubmit="return check();">-->
 						<div class="box-header">
 							<table class="bo table ">
 
@@ -1412,8 +1413,8 @@
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">基础能力</label></td>
-									<td colspan="14"><p><input rows="5" cols="20" name="proId.basic" class="form-control"
-															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 730px;" /></p>
+									<td colspan="14"><textarea rows="5" cols="20" name="proId.basic" class="form-control"
+															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 820px;" ></textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -1422,8 +1423,8 @@
 
 								<tr>
 									<td class="title"><label class="control-label">技术能力</label></td>
-									<td colspan="14"><p><input rows="5" cols="20" name="proId.technology" class="form-control"
-															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 730px;" /></p>
+									<td colspan="14"><textarea rows="5" cols="20" name="proId.technology" class="form-control"
+															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 820px;" ></textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -1432,8 +1433,8 @@
 
 								<tr>
 									<td class="title"><label class="control-label">制作系统优化能力</label></td>
-									<td colspan="14"><p><input rows="5" cols="20" name="proId.optimization" class="form-control"
-															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 730px;" /></p>
+									<td colspan="14"><textarea rows="5" cols="20" name="proId.optimization" class="form-control"
+															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 820px;" ></textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -1441,8 +1442,8 @@
 								</tr>
 								<tr>
 									<td class="title"><label class="control-label">全流程优化能力</label></td>
-									<td colspan="14"><p><input rows="5" cols="20" name="proId.optimization_all" class="form-control"
-															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 730px;" /></p>
+									<td colspan="14"><textarea rows="5" cols="20" name="proId.optimization_all" class="form-control"
+															   style="margin: 0px -0.5px 0px 0px; height: 300px; width: 820px;" ></textarea>
 										<div class="reciver">
                             <span class="label label-success glyphicon glyphicon-plus"
 							>选择管理模块</span>
@@ -1495,7 +1496,7 @@
 								<tr>
 									<td colspan="14" style="text-align: right;">
 										<input type="text" class="days" name="proId.procseeDays" hidden="hidden"/>
-										<input type="text" value="出差申请" name="val" hidden="hidden"/>
+										<input type="text" value="问卷调查" name="val" hidden="hidden"/>
 										<input class="btn btn-primary" id="save" type="submit" value="保存"/>
 										<input class="btn btn-default" id="cancel" type="button" value="取消"
 											   onclick="window.history.back();"/>
@@ -1503,9 +1504,10 @@
 								</tr>
 							</table>
 						</div>
-					</form>
+<#--					</form>-->
 
 				</div>
+				</form>
 			</div>
 
 			<#--

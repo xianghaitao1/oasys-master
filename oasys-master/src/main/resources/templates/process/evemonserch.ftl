@@ -115,7 +115,7 @@ border-top: 1px solid #2196F3;
 }
 .fo{
 	border-top: 1px solid #2196F3;
-   
+
 }
 .label{
     cursor: pointer;
@@ -132,15 +132,15 @@ border-top: 1px solid #2196F3;
 </div>
 <div class="row" style="padding-top: 15px;">
 	<div class="col-md-12">
-		
+
 		<div class="bgc-w box">
-			
+
 			<div class="box-header">
 				<table class="bo table ">
-			
+
 				<tr >
 					<td colspan="14" class="title"><h2>${map.typename}单</h2></td>
-			
+
 				</tr>
 				<tr style="opacity: 0;">
 					<td colspan="14">11</td>
@@ -149,10 +149,10 @@ border-top: 1px solid #2196F3;
 					<td class="wi" style="width: 100px;" ><label class="control-label">标题</label></td>
 					<td colspan="7" class="underline" style="width:160px;"><div class="bottom" ><label class="control-label">${map.processName}</label></div></td>
 					<td class="css" style="width:30px;"></td>
-					
+
 					<td class="wi" style="width: 72px;"><label class="control-label">紧急程度</label></td>
 					<td colspan="4" class="underline" style="width: 60px;"><div class="bottom">${map.harryname}</div></td>
-					
+
 				</tr>
 				<tr >
 					<td class="wi"  style="width: 100px;"><label class="control-label">提单人员</label></td>
@@ -163,13 +163,13 @@ border-top: 1px solid #2196F3;
 					<td class="css" style="width:30px;"></td>
 					<td class="wi"><label class="control-label">提单日期</label></td>
 					<td colspan="4" ><div class="bottom">${map.applytime}</div></td>
-					
+
 				</tr>
-				
+
 				<tr class="top ss">
 					<td colspan="14" class="wi "><div class="bottom" ><label class="control-label font">差旅信息</label></div></td>
 				</tr>
-				
+
 				<tr class="rile two">
 					<td class="wi" style="width:100px;"><label class="control-label">开始日期</label></td>
 					<td  style="width:170px;"><div class="bottom">${map.startime}</div></td>
@@ -180,13 +180,13 @@ border-top: 1px solid #2196F3;
 					<td class="wi"><label class="control-label">出差天数</label></td>
 					<td colspan="4" ><div class="bottom">${(map.tianshu)!''}</div></td>
 				</tr>
-				
+
 				<tr class="rile">
 					<td class="wi" style="width:100px;"><label class="control-label">相关客户</label></td>
 					<td  style="width:140px;"><div class="bottom">${(emoney.name)!''}</div></td>
 					<td class="css"style="width:30px;"></td>
 					<td class="wi" style="width:90px;"><label class="control-label">相关票据</label></td>
-					
+
 					<td colspan="4" style="width:44px;"><div class="bottom">
 					<#if map.file!="file">
 							<#if map.filetype=="img">
@@ -198,7 +198,7 @@ border-top: 1px solid #2196F3;
 							</#if>
 							</div>
 					</td>
-					
+
 					<#if emoney.pro??>
 					<td class="css" style="width:30px;"></td>
 					<td class="wi"><label class="control-label">出差相关</label></td>
@@ -239,10 +239,10 @@ border-top: 1px solid #2196F3;
 									<td colspan="2"><span>${tra.trafficName}</span></td>
 									<td colspan="2"><span>${tra.seatType}</span></td>
 									<td ><span>${tra.trafficMoney}</span></td>
-									
+
 							</tr>
 							</#list>
-						   </tbody> 
+						   </tbody>
 						   <tfoot>
 						   	<tr>
 						   			<td><span>合计</span></td>
@@ -289,10 +289,10 @@ border-top: 1px solid #2196F3;
 									<td colspan="2"><span>${stay.hotelName}</span></td>
 									<td colspan="2"><span>${stay.day}</span></td>
 									<td ><span>${stay.stayMoney}</span></td>
-									
+
 							</tr>
 							</#list>
-						   </tbody> 
+						   </tbody>
 						   <tfoot>
 						   	<tr>
 						   			<td><span>合计</span></td>
@@ -324,13 +324,13 @@ border-top: 1px solid #2196F3;
 									</td>
 									<td colspan="13"><p style="margin-top: 20px;font-size:16px;">${(allmoney)!''}</p></td>
 								</tr>
-								
+
 								<tr>
 									<td style="width:130px;text-align:center;background-color:#6d9eeb;">
 										<div class="mon">
 											<p style="height:20px;"></p>
 											<span>报销事由</span>
-											
+
 										</div>
 									</td>
 									<td colspan="13"><p style="margin-top: 20px;font-size:16px;">${(map.processDescribe)!''}</p></td>
@@ -355,13 +355,13 @@ border-top: 1px solid #2196F3;
 									</td>
 									<td colspan="13"><p style="margin-top: 20px;font-size:16px;">${(emoney.managerAdvice)!''}</p></td>
 								</tr>
-								
+
 								<tr>
 									<td style="width:130px;text-align:center;background-color:#6d9eeb;">
 										<div class="mon">
 											<p style="height:20px;"></p>
 											<span>财务经理意见</span>
-											
+
 										</div>
 									</td>
 									<td colspan="13"><p style="margin-top: 20px;font-size:16px;">${(emoney.financialAdvice)!''}</p></td>
@@ -380,7 +380,7 @@ border-top: 1px solid #2196F3;
 			   					<span class="glyphicon glyphicon glyphicon-print"></span> 打印</a>
 			   				<#if map.name="审核">
 							<a class="btn btn-primary huifu" href="auditing?id=${map.proId}">
-							<span class="glyphicon glyphicon-zoom-in"></span> 审核</a> 
+							<span class="glyphicon glyphicon-zoom-in"></span> 审核</a>
 							</#if>
 						</div>
 				 </td>
@@ -392,7 +392,7 @@ border-top: 1px solid #2196F3;
 </div>
 <script>
 	$(function(){
-	
+
 		$('.yulan').popover({
     		html:true,
     		placement:'auto right',

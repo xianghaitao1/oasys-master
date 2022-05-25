@@ -248,7 +248,7 @@ public class ProcessService {
 		result.put("processName", process.getProcessName());
 		result.put("processDescribe",process.getProcessDescribe());
 
-
+		//企业基本信息
 		result.put("entaddress",process.getEntaddress());
 		result.put("code",process.getCode());
 		result.put("regmoney",process.getRegmoney());
@@ -269,11 +269,8 @@ public class ProcessService {
 		result.put("products",process.getProducts());
 		result.put("honors",process.getHonors());
 
-
-
-
-
-
+		//企业建设基础情况
+		result.put("recordname",process.getRecordname());
 		result.put("docnumber",process.getDocnumber());
 		result.put("year",process.getYear());
 		result.put("totalmoney",process.getTotalmoney());
@@ -285,6 +282,83 @@ public class ProcessService {
 		result.put("products_money",process.getProducts_money());
 		result.put("intel_money",process.getIntel_money());
 		result.put("net_money",process.getNet_money());
+
+		//企业经营情况
+		result.put("ent_year",process.getEnt_year());
+		result.put("main_income",process.getMain_income());
+		result.put("m_rise",process.getM_rise());
+		result.put("net_profit",process.getNet_profit());
+		result.put("n_rise",process.getN_rise());
+
+		//自动化现状-智能设备/设备联网
+		result.put("machines",process.getMachines());
+		result.put("totalmachine",process.getTotalmachine());
+		result.put("machine_2",process.getMachine_2());
+		result.put("machine_5",process.getMachine_5());
+		result.put("machine_old",process.getMachine_old());
+		result.put("core_machine",process.getCore_machine());
+		result.put("machine_type",process.getMachine_type());
+		result.put("machine_value",process.getMachine_value());
+		result.put("machine_intime",process.getMachine_intime());
+		result.put("intention",process.getIntention());
+
+		//信息化现状
+		result.put("erp",process.getErp());
+		result.put("erp_type",process.getErp_type());
+		result.put("erp_use",process.getErp_use());
+		result.put("erp_change",process.getErp_change());
+		result.put("oa",process.getOa());
+		result.put("oa_type",process.getOa_type());
+		result.put("oa_use",process.getOa_use());
+		result.put("oa_change",process.getOa_change());
+		result.put("mes",process.getMes());
+		result.put("mes_type",process.getMes_type());
+		result.put("mes_use",process.getMes_use());
+		result.put("mes_change",process.getMes_change());
+		result.put("aps",process.getAps());
+		result.put("aps_type",process.getAps_type());
+		result.put("aps_use",process.getAps_use());
+		result.put("aps_change",process.getAps_change());
+		result.put("wms",process.getWms());
+		result.put("wms_type",process.getWms_type());
+		result.put("wms_use",process.getWms_use());
+		result.put("wms_change",process.getWms_change());
+		result.put("mps",process.getMps());
+		result.put("mps_type",process.getMps_type());
+		result.put("mps_use",process.getMps_use());
+		result.put("mps_change",process.getMps_change());
+		result.put("scm",process.getScm());
+		result.put("scm_type",process.getScm_type());
+		result.put("scm_use",process.getScm_use());
+		result.put("scm_change",process.getScm_change());
+		result.put("ems",process.getEms());
+		result.put("ems_type",process.getErp_type());
+		result.put("ems_use",process.getEms_use());
+		result.put("ems_change",process.getEms_change());
+		result.put("other_sys",process.getOther_sys());
+		result.put("remark1",process.getRemark1());
+		result.put("sys_type",process.getSys_type());
+		result.put("train",process.getTrain());
+		result.put("remark2",process.getRemark2());
+
+		//智能车间（市级/省级）
+		result.put("workshop1",process.getWorkshop1());
+
+		//高新技术企业
+		result.put("regaddress1",process.getRegaddress1());
+		result.put("workshop2",process.getWorkshop2());
+
+		//工程技术中心（区级/市级/省级）
+		result.put("regaddress2",process.getRegaddress2());
+		result.put("regtime",process.getRegtime());
+		result.put("workshop3",process.getWorkshop3());
+
+		//工业互联网标杆工厂
+		result.put("basic",process.getBasic());
+		result.put("technology",process.getTechnology());
+		result.put("optimization",process.getOptimization());
+		result.put("optimization_all",process.getOptimization_all());
+
 
 		if(("审核").equals(name)){
 			result.put("username", process.getUserId().getUserName());//提单人员
@@ -352,13 +426,12 @@ public class ProcessService {
 		pro.setShenuser(name);
 		pro.setDeeply(22L);
 		Attachment attaid=null;
-//		if(!StringUtil.isEmpty(filePath.getOriginalFilename())){
-//			attaid=mservice.upload(filePath, lu);
-//			attaid.setModel("aoa_bursement");
-//			AttDao.save(attaid);
-//			pro.setProFileid(attaid);
-//		}
+
+
 	}
+
+
+
 	public void index8(ProcessList pro,String val,User lu,String name) {
 		pro.setTypeNmae(val);
 		pro.setApplyTime(new Date());
